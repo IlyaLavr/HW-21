@@ -3,6 +3,7 @@
 
 target 'HW-21' do
 pod 'Alamofire', '~> 5.5'
+pod 'SDWebImage'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
