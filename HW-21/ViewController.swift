@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SnapKit
+import SDWebImage
 
 class ViewController: UIViewController {
     
