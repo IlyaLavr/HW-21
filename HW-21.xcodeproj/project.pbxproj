@@ -15,6 +15,7 @@
 		09394F7629367C45000FECD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09394F7429367C45000FECD2 /* LaunchScreen.storyboard */; };
 		09394F7F29367FE8000FECD2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09394F7E29367FE8000FECD2 /* SnapKit */; };
 		09394F8129368116000FECD2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09394F8029368116000FECD2 /* Model.swift */; };
+		09394F832936815B000FECD2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09394F822936815A000FECD2 /* TableViewCell.swift */; };
 		96AAC3BA193CA2BB62658082 /* Pods_HW_21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9046DBC59EC26E90F396F1 /* Pods_HW_21.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		09394F7529367C45000FECD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09394F7729367C45000FECD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09394F8029368116000FECD2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		09394F822936815A000FECD2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		BE636B837AA9FA577D9197BC /* Pods-HW-21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW-21.release.xcconfig"; path = "Target Support Files/Pods-HW-21/Pods-HW-21.release.xcconfig"; sourceTree = "<group>"; };
 		DCD0E30D8AAE209F4F8C9EE6 /* Pods-HW-21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW-21.debug.xcconfig"; path = "Target Support Files/Pods-HW-21/Pods-HW-21.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9046DBC59EC26E90F396F1 /* Pods_HW_21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW_21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				09394F6929367C40000FECD2 /* AppDelegate.swift */,
 				09394F6B29367C40000FECD2 /* SceneDelegate.swift */,
 				09394F6D29367C40000FECD2 /* ViewController.swift */,
+				09394F822936815A000FECD2 /* TableViewCell.swift */,
 				09394F8029368116000FECD2 /* Model.swift */,
 				09394F6F29367C40000FECD2 /* Main.storyboard */,
 				09394F7229367C45000FECD2 /* Assets.xcassets */,
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09394F832936815B000FECD2 /* TableViewCell.swift in Sources */,
 				09394F6E29367C40000FECD2 /* ViewController.swift in Sources */,
 				09394F6A29367C40000FECD2 /* AppDelegate.swift in Sources */,
 				09394F6C29367C40000FECD2 /* SceneDelegate.swift in Sources */,
