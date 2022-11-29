@@ -13,6 +13,8 @@
 		09394F7129367C40000FECD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09394F6F29367C40000FECD2 /* Main.storyboard */; };
 		09394F7329367C45000FECD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09394F7229367C45000FECD2 /* Assets.xcassets */; };
 		09394F7629367C45000FECD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09394F7429367C45000FECD2 /* LaunchScreen.storyboard */; };
+		09394F7F29367FE8000FECD2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09394F7E29367FE8000FECD2 /* SnapKit */; };
+		96AAC3BA193CA2BB62658082 /* Pods_HW_21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9046DBC59EC26E90F396F1 /* Pods_HW_21.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,9 @@
 		09394F7229367C45000FECD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09394F7529367C45000FECD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09394F7729367C45000FECD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE636B837AA9FA577D9197BC /* Pods-HW-21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW-21.release.xcconfig"; path = "Target Support Files/Pods-HW-21/Pods-HW-21.release.xcconfig"; sourceTree = "<group>"; };
+		DCD0E30D8AAE209F4F8C9EE6 /* Pods-HW-21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW-21.debug.xcconfig"; path = "Target Support Files/Pods-HW-21/Pods-HW-21.debug.xcconfig"; sourceTree = "<group>"; };
+		EE9046DBC59EC26E90F396F1 /* Pods_HW_21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW_21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96AAC3BA193CA2BB62658082 /* Pods_HW_21.framework in Frameworks */,
+				09394F7F29367FE8000FECD2 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				09394F6829367C40000FECD2 /* HW-21 */,
 				09394F6729367C40000FECD2 /* Products */,
+				7B173DB5C20DDFB758365577 /* Pods */,
+				CAEB5A747964B0A417B20F0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +76,23 @@
 			path = "HW-21";
 			sourceTree = "<group>";
 		};
+		7B173DB5C20DDFB758365577 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCD0E30D8AAE209F4F8C9EE6 /* Pods-HW-21.debug.xcconfig */,
+				BE636B837AA9FA577D9197BC /* Pods-HW-21.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CAEB5A747964B0A417B20F0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE9046DBC59EC26E90F396F1 /* Pods_HW_21.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +100,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09394F7A29367C45000FECD2 /* Build configuration list for PBXNativeTarget "HW-21" */;
 			buildPhases = (
+				4583D72A4D96B38DA481E2C7 /* [CP] Check Pods Manifest.lock */,
 				09394F6229367C40000FECD2 /* Sources */,
 				09394F6329367C40000FECD2 /* Frameworks */,
 				09394F6429367C40000FECD2 /* Resources */,
+				24F8FB84C98513BD9E2A9BD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "HW-21";
+			packageProductDependencies = (
+				09394F7E29367FE8000FECD2 /* SnapKit */,
+			);
 			productName = "HW-21";
 			productReference = 09394F6629367C40000FECD2 /* HW-21.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 09394F5D29367C40000FECD2;
+			packageReferences = (
+				09394F7D29367FE7000FECD2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 09394F6729367C40000FECD2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24F8FB84C98513BD9E2A9BD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HW-21/Pods-HW-21-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HW-21/Pods-HW-21-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HW-21/Pods-HW-21-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4583D72A4D96B38DA481E2C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HW-21-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09394F6229367C40000FECD2 /* Sources */ = {
@@ -282,6 +358,7 @@
 		};
 		09394F7B29367C45000FECD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCD0E30D8AAE209F4F8C9EE6 /* Pods-HW-21.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +386,7 @@
 		};
 		09394F7C29367C45000FECD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE636B837AA9FA577D9197BC /* Pods-HW-21.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -356,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		09394F7D29367FE7000FECD2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		09394F7E29367FE8000FECD2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09394F7D29367FE7000FECD2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09394F5E29367C40000FECD2 /* Project object */;
 }
