@@ -70,13 +70,13 @@ class ViewController: UIViewController {
         }
         
         button.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(40)
+            make.top.equalToSuperview().offset(50)
             make.right.equalToSuperview().offset(-10)
             make.left.equalTo(textField.snp.right).offset(10)
             make.height.equalTo(70)
         }
         textField.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(40)
+            make.top.equalToSuperview().offset(50)
             make.left.equalTo(view.snp.left).offset(2)
             make.right.equalTo(button.snp.right).offset(-70)
             make.height.equalTo(70)
@@ -87,27 +87,33 @@ class ViewController: UIViewController {
         let request = AF.request(urlString)
         request.responseDecodable(of: CardInfo.self) { (data) in
             print(data)
-            guard let card = data.value else { return }
-            let cards = card.cards
-            self.cards = cards.filterDuplicate{ $0.name }
-            self.tableView.reloadData()
+            guard let card = data.value else { return self.showAllert()}
+            if card.cards.isEmpty {
+                self.showAllert()
+            } else {
+                let cards = card.cards
+                self.cards = cards.filterDuplicate{ $0.name }
+                self.tableView.reloadData()
+            }
+            
         }
     }
     
     @objc func findCards() {
         let cardFind = textField.text
         if cardFind != "" {
-            
-            // TODO: Исправить это
-            DispatchQueue.main.async {
-                self.urlString = "https://api.magicthegathering.io/v1/cards?name=\(cardFind ?? "")"
-                self.fetchCharacter(url: self.urlString)
-            }
-            self.textField.text = ""
+            self.urlString = "https://api.magicthegathering.io/v1/cards?name=\(cardFind ?? "")"
+            self.fetchCharacter(url: self.urlString)
         } else {
             urlString = "https://api.magicthegathering.io/v1/cards"
             fetchCharacter(url: urlString)
         }
+    }
+    
+    private func showAllert() {
+        let alert = UIAlertController(title: "Внимание!", message: "Данные не найдены. Введите другое имя", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default))
+        self.present(alert, animated: true)
     }
 }
 
@@ -125,7 +131,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         // TODO:  Перенести в отдельную функцию
         cell.name.text = "Имя карты: \(model.name)"
         cell.typeCard.text = "Тип карты: \(model.type ?? "")"
-        cell.cardImage.sd_setImage(with: URL(string: model.imageUrl ?? ""), placeholderImage: UIImage(systemName: "pencil.circle.fill"))
+        cell.cardImage.sd_setImage(with: URL(string: model.imageUrl ?? ""), placeholderImage: UIImage(named: "nofoto"))
         return cell
     }
     
@@ -140,10 +146,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         if let sheet = viewcontroller.sheetPresentationController {
             sheet.detents = [.large()]
         }
-        
-        // TODO:  Настроить одну из моделей
         viewcontroller.showCard(model: card)
-        viewcontroller.setUpView(card)
         present(viewcontroller, animated: true)
     }
 }
@@ -154,11 +157,6 @@ extension Array
     {
         var uniqueKeys = Set<T>()
         return filter{uniqueKeys.insert(keyValue($0)).inserted}
-    }
-    
-    func filterDuplicate<T>(_ keyValue:(Element)->T) -> [Element]
-    {
-        return filterDuplicate{"\(keyValue($0))"}
     }
 }
 

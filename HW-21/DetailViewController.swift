@@ -12,8 +12,7 @@ protocol SetUpViewDetail {
 }
 
 class DetailViewController: UIViewController {
-    
-    var yyy: Card?
+   
     var card: [Card]?
     
     // MARK: - Elements
@@ -61,9 +60,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupHierarhy()
         setupLayout()
-        showCard(model: yyy)
-        view.backgroundColor = .black
-
+        view.backgroundColor = .darkGray
     }
     
     // MARK: - Setup
@@ -112,21 +109,7 @@ class DetailViewController: UIViewController {
         typeCard.text = "Тип карты: \(model?.type ?? "")"
         rarity.text = "Редкость карты: \(model?.rarity ?? "")"
         text.text = "Описание карты: \n \(model?.text ?? "")"
-        cardImage.sd_setImage(with: URL(string: yyy?.imageUrl ?? ""))
-    }
-}
-//
-extension DetailViewController: SetUpViewDetail {
-
-    func setUpView(_ card: Card) {
-        self.yyy = card
-        name.text = card.name
-        typeCard.text = card.text
-        text.text = card.text
-        yyy?.name = card.name
-        yyy?.text = card.text
-        yyy?.rarity = card.rarity
-        yyy?.type = card.type
+        cardImage.sd_setImage(with: URL(string: model?.imageUrl ?? ""), placeholderImage: UIImage(named: "nofoto"))
     }
 }
 
