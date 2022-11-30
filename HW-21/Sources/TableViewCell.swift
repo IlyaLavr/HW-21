@@ -10,7 +10,7 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     static let idetifier = "TableViewCell"
-    var cards: [Card] = []
+    var cards: Card?
     
     // MARK: - Elements
     
@@ -91,7 +91,9 @@ class TableViewCell: UITableViewCell {
         typeCard.text = nil
     }
       
-    func config(model: Card) {
+    func configure(model: Card) {
+        name.text = model.name
+        typeCard.text = model.type
     }
 }
 
