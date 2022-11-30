@@ -71,18 +71,42 @@
 		09394F6829367C40000FECD2 /* HW-21 */ = {
 			isa = PBXGroup;
 			children = (
-				09394F6929367C40000FECD2 /* AppDelegate.swift */,
+				09394F862936A11C000FECD2 /* App */,
+				09394F872936A126000FECD2 /* Sources */,
+				09394F882936A12F000FECD2 /* Resources */,
+				09394F7729367C45000FECD2 /* Info.plist */,
+			);
+			path = "HW-21";
+			sourceTree = "<group>";
+		};
+		09394F862936A11C000FECD2 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				09394F6B29367C40000FECD2 /* SceneDelegate.swift */,
+				09394F6929367C40000FECD2 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		09394F872936A126000FECD2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
 				09394F6D29367C40000FECD2 /* ViewController.swift */,
 				09394F84293681F4000FECD2 /* DetailViewController.swift */,
 				09394F822936815A000FECD2 /* TableViewCell.swift */,
 				09394F8029368116000FECD2 /* Model.swift */,
-				09394F6F29367C40000FECD2 /* Main.storyboard */,
-				09394F7229367C45000FECD2 /* Assets.xcassets */,
-				09394F7429367C45000FECD2 /* LaunchScreen.storyboard */,
-				09394F7729367C45000FECD2 /* Info.plist */,
 			);
-			path = "HW-21";
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		09394F882936A12F000FECD2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09394F6F29367C40000FECD2 /* Main.storyboard */,
+				09394F7429367C45000FECD2 /* LaunchScreen.storyboard */,
+				09394F7229367C45000FECD2 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7B173DB5C20DDFB758365577 /* Pods */ = {

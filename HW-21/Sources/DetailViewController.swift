@@ -7,12 +7,8 @@
 
 import UIKit
 
-protocol SetUpViewDetail {
-    func setUpView(_ card: Card)
-}
-
 class DetailViewController: UIViewController {
-   
+    
     var card: [Card]?
     
     // MARK: - Elements
@@ -28,6 +24,9 @@ class DetailViewController: UIViewController {
     var name: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 3
+        label.preferredMaxLayoutWidth = 250
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
     }()
@@ -35,6 +34,9 @@ class DetailViewController: UIViewController {
     let typeCard: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 3
+        label.preferredMaxLayoutWidth = 250
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
@@ -42,6 +44,9 @@ class DetailViewController: UIViewController {
     let rarity: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.preferredMaxLayoutWidth = 250
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
@@ -105,10 +110,10 @@ class DetailViewController: UIViewController {
     }
     
     func showCard(model: Card?) {
-        name.text = "Имя карты: \( model?.name ?? "")"
-        typeCard.text = "Тип карты: \(model?.type ?? "")"
-        rarity.text = "Редкость карты: \(model?.rarity ?? "")"
-        text.text = "Описание карты: \n \(model?.text ?? "")"
+        name.text = "Имя карты:\n \( model?.name ?? "")"
+        typeCard.text = "Тип карты:\n \(model?.type ?? "")"
+        rarity.text = "Редкость карты:\n \(model?.rarity ?? "")"
+        text.text = "Описание карты:\n \(model?.text ?? "")"
         cardImage.sd_setImage(with: URL(string: model?.imageUrl ?? ""), placeholderImage: UIImage(named: "nofoto"))
     }
 }

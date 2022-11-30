@@ -12,8 +12,11 @@ import SDWebImage
 
 class ViewController: UIViewController {
     
-    var cards: [Card] = []
+    private var cards: [Card] = []
     var urlString = "https://api.magicthegathering.io/v1/cards"
+    let queue = DispatchQueue(label: "queue", qos: .userInteractive)
+    
+    // MARK: - Elements
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -47,13 +50,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.fetchCharacter(url: self.urlString)
+        queue.async {
+            self.fetchCards(url: self.urlString)
         }
         setupHierarhy()
         setupLayout()
     }
     
+    // MARK: - Setup
     
     private func setupHierarhy() {
         view.addSubview(tableView)
@@ -83,7 +87,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func fetchCharacter(url: String) {
+  private func fetchCards(url: String) {
         let request = AF.request(urlString)
         request.responseDecodable(of: CardInfo.self) { (data) in
             print(data)
@@ -102,22 +106,27 @@ class ViewController: UIViewController {
     @objc func findCards() {
         let cardFind = textField.text
         if cardFind != "" {
-            self.urlString = "https://api.magicthegathering.io/v1/cards?name=\(cardFind ?? "")"
-            self.fetchCharacter(url: self.urlString)
+            queue.async {
+                self.urlString = "https://api.magicthegathering.io/v1/cards?name=\(cardFind ?? "")"
+                self.fetchCards(url: self.urlString)
+            }
+            tableView.reloadData()
         } else {
             urlString = "https://api.magicthegathering.io/v1/cards"
-            fetchCharacter(url: urlString)
+            fetchCards(url: urlString)
         }
     }
     
     private func showAllert() {
         let alert = UIAlertController(title: "Внимание!", message: "Данные не найдены. Введите другое имя", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default))
+        alert.addAction(UIAlertAction(title: "Ок", style: .cancel))
         self.present(alert, animated: true)
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - Extensions
+
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cards.count
     }
@@ -127,10 +136,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         let model = cards[indexPath.row]
-        
-        // TODO:  Перенести в отдельную функцию
-        cell.name.text = "Имя карты: \(model.name)"
-        cell.typeCard.text = "Тип карты: \(model.type ?? "")"
+        cell.configure(model: model)
         cell.cardImage.sd_setImage(with: URL(string: model.imageUrl ?? ""), placeholderImage: UIImage(named: "nofoto"))
         return cell
     }
@@ -138,6 +144,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
+    
+}
+
+extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -151,10 +162,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension Array
-{
-    func filterDuplicate<T:Hashable>(_ keyValue:(Element)->T) -> [Element]
-    {
+extension Array {
+    
+    func filterDuplicate<T:Hashable>(_ keyValue:(Element)->T) -> [Element] {
         var uniqueKeys = Set<T>()
         return filter{uniqueKeys.insert(keyValue($0)).inserted}
     }
